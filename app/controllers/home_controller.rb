@@ -1,7 +1,23 @@
 class HomeController < ApplicationController
-  def top
+  def index
   end
 
-  def about
+  def show
   end
+
+  def new
+  end
+  
+  def edit
+  end
+
+  def create
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
 end
