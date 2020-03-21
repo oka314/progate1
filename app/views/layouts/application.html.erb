@@ -12,14 +12,17 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to "TeetApp" %>
+        <%= link_to "TeetApp",root_path %>
       </div>
       <ul class="header-menus">
         <li>
-           <%= link_to "TweetAppとは", root_path%> 
+           <%= link_to "TweetAppとは", home_index_path%> 
         </li>
         <li>
          <%= link_to "投稿一覧",posts_path %>
+        </li>
+        <li>
+        <%= link_to "新規投稿",new_post_path %>
       </ul>
     </header>
 
