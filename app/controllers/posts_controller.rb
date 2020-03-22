@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    redirect_to posts_path
   end
 
   def destroy
