@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-   @posts = Post.all
+   @posts = Post.order(created_at: :asc)
   end
 
   def show
@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
   
   def edit
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -20,9 +21,16 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    @post.content = params[:content]
+    @post.save
+    redirect_to posts_path
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
 end
