@@ -24,7 +24,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.content = params[:content]
     if @post.save
-      redirect_to posts_path,notice: "投稿を編集しました"
+      flash[:notice] = "投稿を編集しました"
+      redirect_to posts_path
     else
       render :edit
     end
