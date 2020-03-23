@@ -25,7 +25,11 @@
         <%= link_to "新規投稿",new_post_path %>
       </ul>
     </header>
-
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice]%>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

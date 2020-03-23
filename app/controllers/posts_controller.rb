@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
   
   def edit
@@ -16,17 +17,21 @@ class PostsController < ApplicationController
 
   def create
     @post =Post.new(content:params[:content])
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def update
     @post = Post.find(params[:id])
     @post.content = params[:content]
     if @post.save
+      flash[:notice] = "投稿を編集しました"
       redirect_to posts_path
     else
-      redirect_to edit_post_path
+      render :edit
     end
   end
 
