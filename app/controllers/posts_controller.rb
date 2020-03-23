@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.content = params[:content]
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path,notice: "投稿を編集しました"
     else
       render :edit
     end
