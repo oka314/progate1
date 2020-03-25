@@ -11,5 +11,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(name: params[:name], email: params[:email])
+    @user.save
+      redirect_to user_path
   end
 end
